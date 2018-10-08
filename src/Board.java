@@ -116,8 +116,8 @@ public class Board extends JPanel {
     @Override
     public void paint (Graphics g){
         super.paint(g);
+        g.setColor(Color.BLACK);
         if (gameOver()) {
-            g.setColor(Color.BLACK);
             g.setFont(new Font("Arial Bold", 20, 50));
             FontMetrics fm = g.getFontMetrics();
 
@@ -130,6 +130,11 @@ public class Board extends JPanel {
             } else {
                 centreString("TIE!", g, fm, getHeight() / 3 + 50);
             }
+        } else {
+            g.setFont(new Font("Arial Bold", 20, 25));
+            FontMetrics fm = g.getFontMetrics();
+
+            centreString(activePlayer.getLetter()+" plays", g, fm, getHeight() / 16);
         }
     }
 
